@@ -1,0 +1,278 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0b1220;
+  color: white;
+  overflow-x: hidden;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left,
+      rgba(0, 183, 255, 0.15),
+      transparent 40%),
+
+    radial-gradient(circle at bottom right,
+      rgba(0, 255, 170, 0.12),
+      transparent 40%);
+
+  z-index: -1;
+}
+
+.container {
+  max-width: 1300px;
+  margin: auto;
+  padding: 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.subtitle {
+  margin-top: 8px;
+  opacity: 0.7;
+}
+
+.live-pill {
+  background: rgba(0, 255, 170, 0.15);
+  color: #00ffaa;
+  border: 1px solid rgba(0,255,170,0.3);
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: bold;
+}
+
+.top-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 20px;
+}
+
+.hero-card {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 40px;
+  min-height: 420px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-label {
+  opacity: 0.7;
+  font-size: 1.1rem;
+}
+
+.hero-value {
+  font-size: 5rem;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.progress-wrap {
+  margin-top: 20px;
+}
+
+.progress-bar {
+  height: 20px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+
+  background: linear-gradient(
+    90deg,
+    #00c6ff,
+    #0072ff
+  );
+
+  transition: width 0.5s ease;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.card,
+.wide-card {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 24px;
+}
+
+.card-title {
+  opacity: 0.7;
+  margin-bottom: 16px;
+}
+
+.card-value {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.mini-bar {
+  margin-top: 18px;
+  height: 12px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.mini-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+
+  background: linear-gradient(
+    90deg,
+    #00ffaa,
+    #00c6ff
+  );
+
+  transition: width 0.5s ease;
+}
+
+.compass-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.compass {
+  width: 140px;
+  height: 140px;
+  border: 3px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  position: relative;
+  margin-top: 10px;
+}
+
+.compass-center {
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+.compass-arrow {
+  width: 4px;
+  height: 52px;
+  background: #00ffaa;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  transform-origin: bottom center;
+
+  transform:
+    translate(-50%, -100%)
+    rotate(0deg);
+
+  border-radius: 999px;
+
+  transition: transform 0.5s ease;
+}
+
+.wind-dir-text {
+  margin-top: 18px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.bottom-grid {
+  margin-top: 24px;
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.status-item {
+  background: rgba(255,255,255,0.05);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.status-item span {
+  display: block;
+  opacity: 0.6;
+  margin-bottom: 10px;
+}
+
+.status-item strong {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 1000px) {
+
+  .top-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-value {
+    font-size: 4rem;
+  }
+
+  .status-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .status-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .hero-value {
+    font-size: 3rem;
+  }
+}
